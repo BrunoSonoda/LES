@@ -7,10 +7,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 
 import homeRoutes from './routes/homeRoutes';
-import userRoutes from './routes/userRoutes';
-import tokenRoutes from './routes/tokenRoutes';
-import alunoRoutes from './routes/alunoRoutes';
-import fotoRoutes from './routes/fotoRoutes';
+import clienteRoutes from './routes/clienteRoutes';
+import cartaoRoutes from './routes/cartaoRoutes';
+import enderecoRoutes from './routes/enderecoRoutes';
 
 const whiteList = [
   'https://react1.BrunoSonoda.com.br',
@@ -55,10 +54,9 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
-    this.app.use('/users/', userRoutes);
-    this.app.use('/tokens/', tokenRoutes);
-    this.app.use('/alunos/', alunoRoutes);
-    this.app.use('/fotos/', fotoRoutes);
+    this.app.use('/cliente/', clienteRoutes);
+    this.app.use('/cartoes', cartaoRoutes);
+    this.app.use('/enderecos', enderecoRoutes);
   }
 }
 
