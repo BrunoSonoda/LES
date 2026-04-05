@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
+import User from '../models/Cliente';
 
 export default async (req, res, next) => {
   const { authorization } = req.headers;
@@ -14,7 +14,7 @@ export default async (req, res, next) => {
 
   try {
     const dados = jwt.verify(token, process.env.TOKEN_SECRET);
-    const { id, email } = dados;
+    const { id, email, role } = dados;
 
     const user = await User.findOne({
       where: {
@@ -31,6 +31,8 @@ export default async (req, res, next) => {
 
     req.userId = id;
     req.userEmail = email;
+    req.userRole = role;
+
     return next();
   } catch (e) {
     return res.status(401).json({

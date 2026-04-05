@@ -61,6 +61,11 @@ module.exports = {
         defaultValue: true,
       },
 
+      role: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
+      },
+
       password_hash: {
         type: Sequelize.STRING,
         allowNull: false,

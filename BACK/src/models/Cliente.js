@@ -90,6 +90,10 @@ export default class Cliente extends Model {
     }, {
       sequelize,
       tableName: 'clientes', // Alinhado ao grupo "Cadastro de Clientes"
+      role: {
+        type: Sequelize.ENUM('CLIENTE', 'ADMIN'),
+        defaultValue: 'CLIENTE',
+    },
     });
 
     this.addHook('beforeSave', async (user) => {
